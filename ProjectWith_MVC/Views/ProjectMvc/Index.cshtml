@@ -1,0 +1,55 @@
+﻿@model ProjectWith_MVC.Models.Student
+
+@{
+    List<SelectListItem> cities = new List<SelectListItem>()
+{
+           new SelectListItem {Text="hyderabad",Value="Hyd" },
+           new SelectListItem {Text="VishakaPatnam",Value="Vizag"},
+           new SelectListItem {Text="Mumbai",Value="mum"},
+           new SelectListItem {Text="Delhi",Value="Del"},
+       };
+}
+@using (Html.BeginForm("Index", "ProjectMvc", FormMethod.Post))
+{
+
+    @Html.ValidationSummary(true)
+    @Html.Label("enter  RollNumber ")
+    @Html.TextBoxFor(m => m.StuRollNum)
+    @Html.ValidationMessageFor(m => m.StuRollNum)
+    <br />
+    @Html.ValidationSummary(true)
+    @Html.Label("enter student name")
+    @Html.TextBoxFor(n => n.Sname)
+    @Html.ValidationMessageFor(m => m.Sname)
+    <br />
+    <br />
+    @Html.ValidationSummary(true)
+    @Html.Label("enter student Fee ")
+    @Html.TextBoxFor(m => m.Fee)
+    @Html.ValidationMessageFor(m => m.Fee)
+    <br />
+    @Html.ValidationSummary(true)
+    @Html.Label("enter PhoneNo ")
+    @Html.TextBoxFor(m => m.PhoneNo)
+    @Html.ValidationMessageFor(m => m.PhoneNo)
+    <br />
+     @Html.ValidationSummary(true)
+     @Html.Label("enter Email ")
+     @Html.TextBoxFor(m => m.Email)
+     @Html.ValidationMessageFor(m => m.Email)
+    <br />
+    @Html.Label("enter the City");
+    @Html.DropDownListFor(m => m.city, cities, "select city")
+    <br />
+    <div>
+        @Html.Label("Select course");
+        @Html.CheckBox("csharp", false)c#
+        @Html.CheckBox("java", false)java
+        @Html.CheckBox("php", false)php
+    </div>
+    <br />
+
+    <input type="submit" value="Register" style="background-color:aqua" />
+
+
+}
